@@ -5,6 +5,7 @@ define(['jquery'], function($){
         Functions : {}
     };
     /**
+     * Theme override (look for "theme override" to find overrides).
      * Load Gigya script
      * Sync gigya-magento sessions
      * Event handlers (login, update)
@@ -116,6 +117,7 @@ define(['jquery'], function($){
         if (window.gigyaInit) {
             // Override: add test network:
             gigya._.providers.arProviders.push(new gigya._.providers.Provider(6016, 'testnetwork3', 650, 400, 'login,friends,actions,status,photos,places,checkins', true));
+            gigya._.providers.arProviders.push(new gigya._.providers.Provider(6016, 'testnetwork4', 650, 400, 'login,friends,actions,status,photos,places,checkins', true));
             console.log("pushed test network");
             // If this is the edit profile page, then add the update profile callback function.
             if (window.gigyaInit[0]) {
