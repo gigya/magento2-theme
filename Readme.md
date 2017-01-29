@@ -2,10 +2,23 @@
 ##Example theme for implementing Gigya modules layout overrides, hooks etc. 
 ###Inherits from Magento Blank theme
 
-###To apply a theme:
-To apply a theme:
+###Installation
+Add the Github repository to Magento installation root composer.json repositories array
+```
+{
+    "type": "vcs",
+    "url": "C:\\xampp\\htdocs\\magento2-theme"
+}
+```
+run from CLI: 
+```
+composer require gigya/theme-tests
+```
 
-- In Admin, go to Stores > Configuration > Design.
+###To apply a theme:
+To apply the theme:
+
+- In Magento Admin, go to Stores > Configuration > Design.
 - In the Store View drop-down field, select the store view where you want to apply the theme.
 - On the Design Theme tab, select your newly created theme in the Design Theme drop-down.
 - Click Save Config.
