@@ -3,10 +3,9 @@
   "description": "Example theme for implementing Gigya modules layout overrides, hooks etc. Inherits from Magento Blank theme",
   "require": {
     "php": "~5.5.0|~5.6.0|~7.0.0",
-    "magento/framework": "100.0.*"
+    "magento/framework": "*"
   },
   "type": "magento2-theme",
-  "version": "100.0.1",
   "license": [
     "OSL-3.0",
     "AFL-3.0"
