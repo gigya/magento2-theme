@@ -7,7 +7,7 @@ Add the Github repository to Magento installation root composer.json repositorie
 ```
 {
     "type": "vcs",
-    "url": "C:\\xampp\\htdocs\\magento2-theme"
+    "url": "https://github.com/gigya/magento2-theme.git"
 }
 ```
 run from CLI: 
