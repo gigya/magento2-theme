@@ -27,5 +27,11 @@ To apply the theme:
 
 Resource: http://devdocs.magento.com/guides/v2.0/frontend-dev-guide/themes/theme-apply.html#theme-apply-apply
 
+If the theme is installed, but it is still not available in design page, You may also need to clear static content.
+```
+navigate to: /pub/static
+delete everything EXCEPT the .htaccess file
+```
+
 ###Uninstall theme:
 Run: php bin/magento theme:uninstall [--backup-code] [-c|--clear-static-content] {theme path} 
