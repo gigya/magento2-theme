@@ -18,7 +18,8 @@ composer require gigya/theme-tests
 ###To apply a theme:
 To apply the theme:
 
-- In Magento Admin, go to Stores > Configuration > Design.
+- In Magento 2.0.x Admin, go to Stores > Configuration > Design.
+- In Magento 2.1.x Admin go to Admin Panel > Content > Configuration.
 - In the Store View drop-down field, select the store view where you want to apply the theme.
 - On the Design Theme tab, select your newly created theme in the Design Theme drop-down.
 - Click Save Config.
