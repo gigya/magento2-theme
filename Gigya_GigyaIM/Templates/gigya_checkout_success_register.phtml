@@ -1,0 +1,35 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * replace Magento Customer registration with Gigya registration screen in checkout success page
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<div id="registration">
+    <h1>Gigya Register</h1>
+    <p>make sure to use override with a dedicated screenset (no SN)</p>
+    <br />
+    <div id="gigya-register" class="gigya-register gigya-loader-location"></div>
+    <script>
+        window.gigyaInit = window.gigyaInit || [];
+        var screenSetParams = {
+            screenSet : "Default-RegistrationLogin",
+            containerID : "gigya-register",
+            startScreen : "gigya-register-screen",
+            mobileScreenSet : "", // optional - for using separate mobile screen set.
+            onAfterScreenLoad : fillEmail
+        };
+        var raasRegisterScreen = {"function": "accounts.showScreenSet", "parameters": screenSetParams};
+        window.gigyaInit.push(raasRegisterScreen);
+//        gigya.accounts.showScreenSet(screenSetParams);
+
+        function fillEmail() {
+            var email = '<?php /* @escapeNotVerified */ echo $block->getEmailAddress(); ?>';
+            jQuery('input[name=email').val(email);
+            console.log("email: " + email);
+        }
+    </script>
+</div>
