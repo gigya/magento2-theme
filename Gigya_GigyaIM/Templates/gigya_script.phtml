@@ -1,0 +1,44 @@
+<?php
+/*
+ * Theme override - add test network for social login tests
+ * Add Gigya script to page body.
+ * Defined in view/frontend/layout/default.xml
+ * Variables can be set and passed from the block object model: block/GigyaScript
+ */
+
+?>
+
+<script>
+var magento_user_logged_in = "<?php echo $block->getMagentoUserLogin() ?>";
+var login_post_url = "<?php echo $block->getPostActionUrl(); ?>";
+var edit_post_url = "<?php echo $block->getUrl('customer/account/editPost') ?>";
+</script>
+
+<script>
+    require([
+        "jquery",
+        "gigya_script"
+    ], function($, gigyaMage2) {
+        "use strict";
+        window.gigyaInit = window.gigyaInit || [];
+        // Set Gigya global configuration object
+        window.__gigyaConf = {
+            // Gigya user session time should be equal to Magento session time
+            sessionExpiration: <?php echo $block->getUserSessionLifetime(); ?>,
+            enabledProviders: "testnetwork3,testnetwork4" //  theme override
+        };
+        
+        gigyaMage2.Functions.loadGigyaScript(
+            "<?php echo $block->getGigyaApiKey() ?>",
+            "<?php echo $block->getLanguage() ?>"
+        );
+
+        // Session synchronization between Gigya and Magento
+        gigyaMage2.Functions.syncSessionStatus();
+
+        $('a[href$="logout/"]').click(function () {
+            gigya.accounts.logout();
+            return true;
+        });
+    });
+</script>
